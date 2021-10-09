@@ -4,7 +4,7 @@
 #
 Name     : harfbuzz
 Version  : 2.6.7
-Release  : 104
+Release  : 105
 URL      : https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.7.tar.xz
 Source0  : https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.7.tar.xz
 Summary  : HarfBuzz text shaping library
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : Apache-2.0 MIT OFL-1.1
 Requires: harfbuzz-bin = %{version}-%{release}
 Requires: harfbuzz-data = %{version}-%{release}
+Requires: harfbuzz-filemap = %{version}-%{release}
 Requires: harfbuzz-lib = %{version}-%{release}
 Requires: harfbuzz-license = %{version}-%{release}
 BuildRequires : buildreq-meson
@@ -37,6 +38,7 @@ Summary: bin components for the harfbuzz package.
 Group: Binaries
 Requires: harfbuzz-data = %{version}-%{release}
 Requires: harfbuzz-license = %{version}-%{release}
+Requires: harfbuzz-filemap = %{version}-%{release}
 
 %description bin
 bin components for the harfbuzz package.
@@ -71,11 +73,20 @@ Group: Documentation
 doc components for the harfbuzz package.
 
 
+%package filemap
+Summary: filemap components for the harfbuzz package.
+Group: Default
+
+%description filemap
+filemap components for the harfbuzz package.
+
+
 %package lib
 Summary: lib components for the harfbuzz package.
 Group: Libraries
 Requires: harfbuzz-data = %{version}-%{release}
 Requires: harfbuzz-license = %{version}-%{release}
+Requires: harfbuzz-filemap = %{version}-%{release}
 
 %description lib
 lib components for the harfbuzz package.
@@ -101,15 +112,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1600301388
+export SOURCE_DATE_EPOCH=1633753829
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FCFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
 %configure --disable-static --with-gobject \
 --enable-introspection \
 --with-cairo \
@@ -121,11 +132,11 @@ make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=haswell"
-export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
-export FFLAGS="$FFLAGS -m64 -march=haswell"
-export FCFLAGS="$FCFLAGS -m64 -march=haswell"
-export LDFLAGS="$LDFLAGS -m64 -march=haswell"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 %configure --disable-static --with-gobject \
 --enable-introspection \
 --with-cairo \
@@ -145,7 +156,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1600301388
+export SOURCE_DATE_EPOCH=1633753829
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/harfbuzz
 cp %{_builddir}/harfbuzz-2.6.7/COPYING %{buildroot}/usr/share/package-licenses/harfbuzz/18c194fb2b96b6a60289a79265e76976ffdb303d
@@ -164,7 +175,8 @@ cp %{_builddir}/harfbuzz-2.6.7/test/shaping/texts/in-house/shaper-indic/script-s
 cp %{_builddir}/harfbuzz-2.6.7/test/shaping/texts/in-house/shaper-indic/script-tamil/utrrs/LICENSE %{buildroot}/usr/share/package-licenses/harfbuzz/d1b9f10b93a02a3b2ada5dafbe7a55420d2a007a
 cp %{_builddir}/harfbuzz-2.6.7/test/shaping/texts/in-house/shaper-indic/script-telugu/utrrs/LICENSE %{buildroot}/usr/share/package-licenses/harfbuzz/d1b9f10b93a02a3b2ada5dafbe7a55420d2a007a
 pushd ../buildavx2/
-%make_install_avx2
+%make_install_v3
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 %make_install
 
@@ -173,14 +185,11 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/haswell/hb-ot-shape-closure
-/usr/bin/haswell/hb-shape
-/usr/bin/haswell/hb-subset
-/usr/bin/haswell/hb-view
 /usr/bin/hb-ot-shape-closure
 /usr/bin/hb-shape
 /usr/bin/hb-subset
 /usr/bin/hb-view
+/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -225,8 +234,6 @@ popd
 /usr/include/harfbuzz/hb-version.h
 /usr/include/harfbuzz/hb.h
 /usr/lib64/cmake/harfbuzz/harfbuzz-config.cmake
-/usr/lib64/haswell/libharfbuzz-subset.so
-/usr/lib64/haswell/libharfbuzz.so
 /usr/lib64/libharfbuzz-gobject.so
 /usr/lib64/libharfbuzz-icu.so
 /usr/lib64/libharfbuzz-subset.so
@@ -336,12 +343,12 @@ popd
 /usr/share/gtk-doc/html/harfbuzz/why-is-it-called-harfbuzz.html
 /usr/share/gtk-doc/html/harfbuzz/working-with-harfbuzz-clusters.html
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-harfbuzz
+
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/haswell/libharfbuzz-subset.so.0
-/usr/lib64/haswell/libharfbuzz-subset.so.0.20600.7
-/usr/lib64/haswell/libharfbuzz.so.0
-/usr/lib64/haswell/libharfbuzz.so.0.20600.7
 /usr/lib64/libharfbuzz-gobject.so.0
 /usr/lib64/libharfbuzz-gobject.so.0.20600.7
 /usr/lib64/libharfbuzz-icu.so.0
@@ -350,6 +357,7 @@ popd
 /usr/lib64/libharfbuzz-subset.so.0.20600.7
 /usr/lib64/libharfbuzz.so.0
 /usr/lib64/libharfbuzz.so.0.20600.7
+/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
