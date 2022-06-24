@@ -4,7 +4,7 @@
 #
 Name     : harfbuzz
 Version  : 2.6.7
-Release  : 108
+Release  : 109
 URL      : https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.7.tar.xz
 Source0  : https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.7.tar.xz
 Summary  : HarfBuzz text shaping library
@@ -112,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633753829
+export SOURCE_DATE_EPOCH=1656042246
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -132,9 +132,9 @@ make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 %configure --disable-static --with-gobject \
@@ -156,7 +156,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1633753829
+export SOURCE_DATE_EPOCH=1656042246
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/harfbuzz
 cp %{_builddir}/harfbuzz-2.6.7/COPYING %{buildroot}/usr/share/package-licenses/harfbuzz/18c194fb2b96b6a60289a79265e76976ffdb303d
@@ -176,9 +176,9 @@ cp %{_builddir}/harfbuzz-2.6.7/test/shaping/texts/in-house/shaper-indic/script-t
 cp %{_builddir}/harfbuzz-2.6.7/test/shaping/texts/in-house/shaper-indic/script-telugu/utrrs/LICENSE %{buildroot}/usr/share/package-licenses/harfbuzz/d1b9f10b93a02a3b2ada5dafbe7a55420d2a007a
 pushd ../buildavx2/
 %make_install_v3
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 %make_install
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -349,6 +349,18 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-gobject.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-gobject.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-gobject.so.0.20600.7
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-icu.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-icu.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-icu.so.0.20600.7
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-subset.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-subset.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz-subset.so.0.20600.7
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libharfbuzz.so.0.20600.7
 /usr/lib64/libharfbuzz-gobject.so.0
 /usr/lib64/libharfbuzz-gobject.so.0.20600.7
 /usr/lib64/libharfbuzz-icu.so.0
@@ -357,7 +369,6 @@ popd
 /usr/lib64/libharfbuzz-subset.so.0.20600.7
 /usr/lib64/libharfbuzz.so.0
 /usr/lib64/libharfbuzz.so.0.20600.7
-/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
