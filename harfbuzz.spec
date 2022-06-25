@@ -4,7 +4,7 @@
 #
 Name     : harfbuzz
 Version  : 2.6.7
-Release  : 109
+Release  : 110
 URL      : https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.7.tar.xz
 Source0  : https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.7.tar.xz
 Summary  : HarfBuzz text shaping library
@@ -112,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656042246
+export SOURCE_DATE_EPOCH=1656124567
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -156,7 +156,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1656042246
+export SOURCE_DATE_EPOCH=1656124567
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/harfbuzz
 cp %{_builddir}/harfbuzz-2.6.7/COPYING %{buildroot}/usr/share/package-licenses/harfbuzz/18c194fb2b96b6a60289a79265e76976ffdb303d
