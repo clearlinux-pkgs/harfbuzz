@@ -1,7 +1,0 @@
---with-gobject
---enable-introspection
---with-cairo
---with-freetype
---with-glib
---with-graphite2
---with-icu

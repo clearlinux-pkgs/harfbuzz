@@ -5,3 +5,5 @@
 gobject-introspection-dev
 gobject-introspection
 graphite-dev
+glibc-staticdev
+gcc-staticdev

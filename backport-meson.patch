@@ -1,0 +1,42 @@
+--- harfbuzz-5.2.0/src/meson.build~	2022-09-17 01:19:29.000000000 +0000
++++ harfbuzz-5.2.0/src/meson.build	2022-09-19 15:27:17.119997378 +0000
+@@ -411,7 +411,7 @@
+ 
+ harfbuzz_deps = [thread_dep, m_dep] + harfbuzz_extra_deps
+ 
+-libharfbuzz_link_language = 'c'
++libharfbuzz_link_language = 'cpp'
+ 
+ if conf.get('HAVE_FREETYPE', 0) == 1
+   hb_sources += hb_ft_sources
+--- harfbuzz-5.2.0/src/meson.build~	2022-09-19 15:27:17.000000000 +0000
++++ harfbuzz-5.2.0/src/meson.build	2022-09-19 15:29:22.107076398 +0000
+@@ -532,7 +532,7 @@
+   version: version,
+   install: true,
+   darwin_versions: darwin_versions,
+-  link_language: 'c',
++  link_language: 'cpp',
+ )
+ 
+ custom_target('harfbuzz-subset.cc',
+@@ -719,7 +719,7 @@
+     version: version,
+     install: true,
+     darwin_versions: darwin_versions,
+-    link_language: 'c',
++    link_language: 'cpp',
+   )
+ 
+   gir = find_program('g-ir-scanner', required: get_option('introspection'))
+--- harfbuzz-5.2.0/src/meson.build~	2022-09-19 15:29:22.000000000 +0000
++++ harfbuzz-5.2.0/src/meson.build	2022-09-19 15:31:21.107083303 +0000
+@@ -635,7 +635,7 @@
+     install: true,
+     darwin_versions: darwin_versions,
+     # ICU links to stdc++ anyway so the default linker is good
+-    # link_language: 'c',
++    link_language: 'cpp',
+   )
+ 
+   libharfbuzz_icu_dep = declare_dependency(
