@@ -4,7 +4,7 @@
 #
 Name     : harfbuzz
 Version  : 5.2.0
-Release  : 114
+Release  : 115
 URL      : https://github.com/harfbuzz/harfbuzz/archive/refs/tags/5.2.0.tar.gz
 Source0  : https://github.com/harfbuzz/harfbuzz/archive/refs/tags/5.2.0.tar.gz
 Summary  : HarfBuzz text shaping library
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1663602292
+export SOURCE_DATE_EPOCH=1663622250
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -124,9 +124,9 @@ export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=a
 export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
 export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
 export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dgraphite2=enabled  builddir
 ninja -v -C builddir
-CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddiravx2
+CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dgraphite2=enabled  builddiravx2
 ninja -v -C builddiravx2
 
 %check
@@ -180,6 +180,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/harfbuzz/hb-gobject-enums.h
 /usr/include/harfbuzz/hb-gobject-structs.h
 /usr/include/harfbuzz/hb-gobject.h
+/usr/include/harfbuzz/hb-graphite2.h
 /usr/include/harfbuzz/hb-icu.h
 /usr/include/harfbuzz/hb-map.h
 /usr/include/harfbuzz/hb-ot-color.h
