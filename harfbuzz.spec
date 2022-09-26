@@ -4,7 +4,7 @@
 #
 Name     : harfbuzz
 Version  : 5.2.0
-Release  : 116
+Release  : 117
 URL      : https://github.com/harfbuzz/harfbuzz/archive/refs/tags/5.2.0.tar.gz
 Source0  : https://github.com/harfbuzz/harfbuzz/archive/refs/tags/5.2.0.tar.gz
 Summary  : HarfBuzz text shaping library
