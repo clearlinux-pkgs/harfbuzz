@@ -312,6 +312,7 @@ libharfbuzz.so.0:hb_font_set_user_data
 libharfbuzz.so.0:hb_font_set_var_coords_design
 libharfbuzz.so.0:hb_font_set_var_coords_normalized
 libharfbuzz.so.0:hb_font_set_var_named_instance
+libharfbuzz.so.0:hb_font_set_variation
 libharfbuzz.so.0:hb_font_set_variations
 libharfbuzz.so.0:hb_font_subtract_glyph_origin_for_direction
 libharfbuzz.so.0:hb_ft_face_create
