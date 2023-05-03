@@ -7,3 +7,5 @@ gobject-introspection
 graphite-dev
 glibc-staticdev
 gcc-staticdev
+freetype-dev
+icu4c-dev
