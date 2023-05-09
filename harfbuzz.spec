@@ -5,7 +5,7 @@
 #
 Name     : harfbuzz
 Version  : 7.2.0
-Release  : 128
+Release  : 129
 URL      : https://github.com/harfbuzz/harfbuzz/archive/7.2.0/harfbuzz-7.2.0.tar.gz
 Source0  : https://github.com/harfbuzz/harfbuzz/archive/7.2.0/harfbuzz-7.2.0.tar.gz
 Summary  : HarfBuzz text shaping library
@@ -108,7 +108,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683144581
+export SOURCE_DATE_EPOCH=1683654498
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
