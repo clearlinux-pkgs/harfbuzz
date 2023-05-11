@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : harfbuzz
-Version  : 7.2.0
-Release  : 129
-URL      : https://github.com/harfbuzz/harfbuzz/archive/7.2.0/harfbuzz-7.2.0.tar.gz
-Source0  : https://github.com/harfbuzz/harfbuzz/archive/7.2.0/harfbuzz-7.2.0.tar.gz
+Version  : 7.3.0
+Release  : 130
+URL      : https://github.com/harfbuzz/harfbuzz/archive/7.3.0/harfbuzz-7.3.0.tar.gz
+Source0  : https://github.com/harfbuzz/harfbuzz/archive/7.3.0/harfbuzz-7.3.0.tar.gz
 Summary  : HarfBuzz text shaping library
 Group    : Development/Tools
 License  : Apache-2.0 MIT OFL-1.1
@@ -16,7 +16,6 @@ Requires: harfbuzz-data = %{version}-%{release}
 Requires: harfbuzz-lib = %{version}-%{release}
 Requires: harfbuzz-license = %{version}-%{release}
 BuildRequires : buildreq-meson
-BuildRequires : cairo-dev
 BuildRequires : docbook-xml
 BuildRequires : freetype-dev
 BuildRequires : gcc-staticdev
@@ -26,10 +25,6 @@ BuildRequires : gobject-introspection-dev
 BuildRequires : graphite-dev
 BuildRequires : gtk-doc
 BuildRequires : icu4c-dev
-BuildRequires : pkgconfig(cairo)
-BuildRequires : pkgconfig(cairo-ft)
-BuildRequires : pkgconfig(freetype2)
-BuildRequires : pkgconfig(icu-uc)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -96,11 +91,11 @@ license components for the harfbuzz package.
 
 
 %prep
-%setup -q -n harfbuzz-7.2.0
-cd %{_builddir}/harfbuzz-7.2.0
+%setup -q -n harfbuzz-7.3.0
+cd %{_builddir}/harfbuzz-7.3.0
 %patch1 -p1
 pushd ..
-cp -a harfbuzz-7.2.0 buildavx2
+cp -a harfbuzz-7.3.0 buildavx2
 popd
 
 %build
@@ -108,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683654498
+export SOURCE_DATE_EPOCH=1683842791
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -294,6 +289,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/share/gtk-doc/html/harfbuzz/api-index-6-0-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-7-0-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-7-1-0.html
+/usr/share/gtk-doc/html/harfbuzz/api-index-7-3-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-full.html
 /usr/share/gtk-doc/html/harfbuzz/apple-advanced-typography-api.html
 /usr/share/gtk-doc/html/harfbuzz/buffers-language-script-and-direction.html
@@ -401,25 +397,25 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %files lib
 %defattr(-,root,root,-)
 /V3/usr/lib64/libharfbuzz-cairo.so.0
-/V3/usr/lib64/libharfbuzz-cairo.so.0.60720.0
+/V3/usr/lib64/libharfbuzz-cairo.so.0.60730.0
 /V3/usr/lib64/libharfbuzz-gobject.so.0
-/V3/usr/lib64/libharfbuzz-gobject.so.0.60720.0
+/V3/usr/lib64/libharfbuzz-gobject.so.0.60730.0
 /V3/usr/lib64/libharfbuzz-icu.so.0
-/V3/usr/lib64/libharfbuzz-icu.so.0.60720.0
+/V3/usr/lib64/libharfbuzz-icu.so.0.60730.0
 /V3/usr/lib64/libharfbuzz-subset.so.0
-/V3/usr/lib64/libharfbuzz-subset.so.0.60720.0
+/V3/usr/lib64/libharfbuzz-subset.so.0.60730.0
 /V3/usr/lib64/libharfbuzz.so.0
-/V3/usr/lib64/libharfbuzz.so.0.60720.0
+/V3/usr/lib64/libharfbuzz.so.0.60730.0
 /usr/lib64/libharfbuzz-cairo.so.0
-/usr/lib64/libharfbuzz-cairo.so.0.60720.0
+/usr/lib64/libharfbuzz-cairo.so.0.60730.0
 /usr/lib64/libharfbuzz-gobject.so.0
-/usr/lib64/libharfbuzz-gobject.so.0.60720.0
+/usr/lib64/libharfbuzz-gobject.so.0.60730.0
 /usr/lib64/libharfbuzz-icu.so.0
-/usr/lib64/libharfbuzz-icu.so.0.60720.0
+/usr/lib64/libharfbuzz-icu.so.0.60730.0
 /usr/lib64/libharfbuzz-subset.so.0
-/usr/lib64/libharfbuzz-subset.so.0.60720.0
+/usr/lib64/libharfbuzz-subset.so.0.60730.0
 /usr/lib64/libharfbuzz.so.0
-/usr/lib64/libharfbuzz.so.0.60720.0
+/usr/lib64/libharfbuzz.so.0.60730.0
 
 %files license
 %defattr(0644,root,root,0755)
