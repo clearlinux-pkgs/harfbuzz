@@ -5,7 +5,7 @@
 #
 Name     : harfbuzz
 Version  : 7.3.0
-Release  : 130
+Release  : 131
 URL      : https://github.com/harfbuzz/harfbuzz/archive/7.3.0/harfbuzz-7.3.0.tar.gz
 Source0  : https://github.com/harfbuzz/harfbuzz/archive/7.3.0/harfbuzz-7.3.0.tar.gz
 Summary  : HarfBuzz text shaping library
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683842791
+export SOURCE_DATE_EPOCH=1685551750
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -158,11 +158,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libharfbuzz-cairo.so
-/V3/usr/lib64/libharfbuzz-gobject.so
-/V3/usr/lib64/libharfbuzz-icu.so
-/V3/usr/lib64/libharfbuzz-subset.so
-/V3/usr/lib64/libharfbuzz.so
 /usr/include/harfbuzz/hb-aat-layout.h
 /usr/include/harfbuzz/hb-aat.h
 /usr/include/harfbuzz/hb-blob.h
@@ -396,15 +391,10 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libharfbuzz-cairo.so.0
 /V3/usr/lib64/libharfbuzz-cairo.so.0.60730.0
-/V3/usr/lib64/libharfbuzz-gobject.so.0
 /V3/usr/lib64/libharfbuzz-gobject.so.0.60730.0
-/V3/usr/lib64/libharfbuzz-icu.so.0
 /V3/usr/lib64/libharfbuzz-icu.so.0.60730.0
-/V3/usr/lib64/libharfbuzz-subset.so.0
 /V3/usr/lib64/libharfbuzz-subset.so.0.60730.0
-/V3/usr/lib64/libharfbuzz.so.0
 /V3/usr/lib64/libharfbuzz.so.0.60730.0
 /usr/lib64/libharfbuzz-cairo.so.0
 /usr/lib64/libharfbuzz-cairo.so.0.60730.0
