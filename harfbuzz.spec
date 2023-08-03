@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : harfbuzz
-Version  : 8.1.0
-Release  : 134
-URL      : https://github.com/harfbuzz/harfbuzz/archive/8.1.0/harfbuzz-8.1.0.tar.gz
-Source0  : https://github.com/harfbuzz/harfbuzz/archive/8.1.0/harfbuzz-8.1.0.tar.gz
+Version  : 8.1.1
+Release  : 135
+URL      : https://github.com/harfbuzz/harfbuzz/archive/8.1.1/harfbuzz-8.1.1.tar.gz
+Source0  : https://github.com/harfbuzz/harfbuzz/archive/8.1.1/harfbuzz-8.1.1.tar.gz
 Summary  : HarfBuzz text shaping library
 Group    : Development/Tools
 License  : Apache-2.0 MIT OFL-1.1
@@ -91,11 +91,11 @@ license components for the harfbuzz package.
 
 
 %prep
-%setup -q -n harfbuzz-8.1.0
-cd %{_builddir}/harfbuzz-8.1.0
+%setup -q -n harfbuzz-8.1.1
+cd %{_builddir}/harfbuzz-8.1.1
 %patch -P 1 -p1
 pushd ..
-cp -a harfbuzz-8.1.0 buildavx2
+cp -a harfbuzz-8.1.1 buildavx2
 popd
 
 %build
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690985714
+export SOURCE_DATE_EPOCH=1691075284
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -393,21 +393,21 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libharfbuzz-cairo.so.0.60810.0
-/V3/usr/lib64/libharfbuzz-gobject.so.0.60810.0
-/V3/usr/lib64/libharfbuzz-icu.so.0.60810.0
-/V3/usr/lib64/libharfbuzz-subset.so.0.60810.0
-/V3/usr/lib64/libharfbuzz.so.0.60810.0
+/V3/usr/lib64/libharfbuzz-cairo.so.0.60811.0
+/V3/usr/lib64/libharfbuzz-gobject.so.0.60811.0
+/V3/usr/lib64/libharfbuzz-icu.so.0.60811.0
+/V3/usr/lib64/libharfbuzz-subset.so.0.60811.0
+/V3/usr/lib64/libharfbuzz.so.0.60811.0
 /usr/lib64/libharfbuzz-cairo.so.0
-/usr/lib64/libharfbuzz-cairo.so.0.60810.0
+/usr/lib64/libharfbuzz-cairo.so.0.60811.0
 /usr/lib64/libharfbuzz-gobject.so.0
-/usr/lib64/libharfbuzz-gobject.so.0.60810.0
+/usr/lib64/libharfbuzz-gobject.so.0.60811.0
 /usr/lib64/libharfbuzz-icu.so.0
-/usr/lib64/libharfbuzz-icu.so.0.60810.0
+/usr/lib64/libharfbuzz-icu.so.0.60811.0
 /usr/lib64/libharfbuzz-subset.so.0
-/usr/lib64/libharfbuzz-subset.so.0.60810.0
+/usr/lib64/libharfbuzz-subset.so.0.60811.0
 /usr/lib64/libharfbuzz.so.0
-/usr/lib64/libharfbuzz.so.0.60810.0
+/usr/lib64/libharfbuzz.so.0.60811.0
 
 %files license
 %defattr(0644,root,root,0755)
