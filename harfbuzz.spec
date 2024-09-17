@@ -7,7 +7,7 @@
 #
 Name     : harfbuzz
 Version  : 9.0.0
-Release  : 144
+Release  : 145
 URL      : https://github.com/harfbuzz/harfbuzz/archive/9.0.0/harfbuzz-9.0.0.tar.gz
 Source0  : https://github.com/harfbuzz/harfbuzz/archive/9.0.0/harfbuzz-9.0.0.tar.gz
 Summary  : HarfBuzz text shaping library
