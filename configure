@@ -1,1 +1,2 @@
 -Dgraphite2=enabled
+-Dwith_libstdcxx=true
