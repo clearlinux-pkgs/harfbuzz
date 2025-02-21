@@ -457,6 +457,7 @@ libharfbuzz.so.0:hb_ot_name_get_utf8
 libharfbuzz.so.0:hb_ot_name_list_names
 libharfbuzz.so.0:hb_ot_shape_glyphs_closure
 libharfbuzz.so.0:hb_ot_shape_plan_collect_lookups
+libharfbuzz.so.0:hb_ot_shape_plan_get_feature_tags
 libharfbuzz.so.0:hb_ot_tag_from_language
 libharfbuzz.so.0:hb_ot_tag_to_language
 libharfbuzz.so.0:hb_ot_tag_to_script
