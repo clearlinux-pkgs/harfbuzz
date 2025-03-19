@@ -6,10 +6,10 @@
 # autospec commit: fbbd4e3
 #
 Name     : harfbuzz
-Version  : 10.3.0
-Release  : 149
-URL      : https://github.com/harfbuzz/harfbuzz/archive/10.3.0/harfbuzz-10.3.0.tar.gz
-Source0  : https://github.com/harfbuzz/harfbuzz/archive/10.3.0/harfbuzz-10.3.0.tar.gz
+Version  : 10.4.0
+Release  : 150
+URL      : https://github.com/harfbuzz/harfbuzz/archive/10.4.0/harfbuzz-10.4.0.tar.gz
+Source0  : https://github.com/harfbuzz/harfbuzz/archive/10.4.0/harfbuzz-10.4.0.tar.gz
 Summary  : HarfBuzz text shaping library
 Group    : Development/Tools
 License  : Apache-2.0 MIT OFL-1.1
@@ -93,10 +93,10 @@ license components for the harfbuzz package.
 
 
 %prep
-%setup -q -n harfbuzz-10.3.0
-cd %{_builddir}/harfbuzz-10.3.0
+%setup -q -n harfbuzz-10.4.0
+cd %{_builddir}/harfbuzz-10.4.0
 pushd ..
-cp -a harfbuzz-10.3.0 buildavx2
+cp -a harfbuzz-10.4.0 buildavx2
 popd
 
 %build
@@ -104,7 +104,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1740154643
+export SOURCE_DATE_EPOCH=1742414558
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -290,6 +290,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/share/gtk-doc/html/harfbuzz/api-index-10-1-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-10-2-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-10-3-0.html
+/usr/share/gtk-doc/html/harfbuzz/api-index-10-4-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-2-0-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-2-1-0.html
 /usr/share/gtk-doc/html/harfbuzz/api-index-2-2-0.html
@@ -431,21 +432,21 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libharfbuzz-cairo.so.0.61030.0
-/V3/usr/lib64/libharfbuzz-gobject.so.0.61030.0
-/V3/usr/lib64/libharfbuzz-icu.so.0.61030.0
-/V3/usr/lib64/libharfbuzz-subset.so.0.61030.0
-/V3/usr/lib64/libharfbuzz.so.0.61030.0
+/V3/usr/lib64/libharfbuzz-cairo.so.0.61040.0
+/V3/usr/lib64/libharfbuzz-gobject.so.0.61040.0
+/V3/usr/lib64/libharfbuzz-icu.so.0.61040.0
+/V3/usr/lib64/libharfbuzz-subset.so.0.61040.0
+/V3/usr/lib64/libharfbuzz.so.0.61040.0
 /usr/lib64/libharfbuzz-cairo.so.0
-/usr/lib64/libharfbuzz-cairo.so.0.61030.0
+/usr/lib64/libharfbuzz-cairo.so.0.61040.0
 /usr/lib64/libharfbuzz-gobject.so.0
-/usr/lib64/libharfbuzz-gobject.so.0.61030.0
+/usr/lib64/libharfbuzz-gobject.so.0.61040.0
 /usr/lib64/libharfbuzz-icu.so.0
-/usr/lib64/libharfbuzz-icu.so.0.61030.0
+/usr/lib64/libharfbuzz-icu.so.0.61040.0
 /usr/lib64/libharfbuzz-subset.so.0
-/usr/lib64/libharfbuzz-subset.so.0.61030.0
+/usr/lib64/libharfbuzz-subset.so.0.61040.0
 /usr/lib64/libharfbuzz.so.0
-/usr/lib64/libharfbuzz.so.0.61030.0
+/usr/lib64/libharfbuzz.so.0.61040.0
 
 %files license
 %defattr(0644,root,root,0755)
