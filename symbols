@@ -176,6 +176,7 @@ libharfbuzz.so.0:hb_buffer_set_script
 libharfbuzz.so.0:hb_buffer_set_segment_properties
 libharfbuzz.so.0:hb_buffer_set_unicode_funcs
 libharfbuzz.so.0:hb_buffer_set_user_data
+libharfbuzz.so.0:hb_calloc
 libharfbuzz.so.0:hb_color_get_alpha
 libharfbuzz.so.0:hb_color_get_blue
 libharfbuzz.so.0:hb_color_get_green
@@ -213,7 +214,9 @@ libharfbuzz.so.0:hb_face_count
 libharfbuzz.so.0:hb_face_create
 libharfbuzz.so.0:hb_face_create_for_tables
 libharfbuzz.so.0:hb_face_create_from_file_or_fail
+libharfbuzz.so.0:hb_face_create_from_file_or_fail_using
 libharfbuzz.so.0:hb_face_create_or_fail
+libharfbuzz.so.0:hb_face_create_or_fail_using
 libharfbuzz.so.0:hb_face_destroy
 libharfbuzz.so.0:hb_face_get_empty
 libharfbuzz.so.0:hb_face_get_glyph_count
@@ -222,6 +225,7 @@ libharfbuzz.so.0:hb_face_get_table_tags
 libharfbuzz.so.0:hb_face_get_upem
 libharfbuzz.so.0:hb_face_get_user_data
 libharfbuzz.so.0:hb_face_is_immutable
+libharfbuzz.so.0:hb_face_list_loaders
 libharfbuzz.so.0:hb_face_make_immutable
 libharfbuzz.so.0:hb_face_reference
 libharfbuzz.so.0:hb_face_reference_blob
@@ -310,12 +314,14 @@ libharfbuzz.so.0:hb_font_get_variation_glyph
 libharfbuzz.so.0:hb_font_glyph_from_string
 libharfbuzz.so.0:hb_font_glyph_to_string
 libharfbuzz.so.0:hb_font_is_immutable
+libharfbuzz.so.0:hb_font_list_funcs
 libharfbuzz.so.0:hb_font_make_immutable
 libharfbuzz.so.0:hb_font_paint_glyph
 libharfbuzz.so.0:hb_font_reference
 libharfbuzz.so.0:hb_font_set_face
 libharfbuzz.so.0:hb_font_set_funcs
 libharfbuzz.so.0:hb_font_set_funcs_data
+libharfbuzz.so.0:hb_font_set_funcs_using
 libharfbuzz.so.0:hb_font_set_parent
 libharfbuzz.so.0:hb_font_set_ppem
 libharfbuzz.so.0:hb_font_set_ptem
@@ -329,8 +335,10 @@ libharfbuzz.so.0:hb_font_set_var_named_instance
 libharfbuzz.so.0:hb_font_set_variation
 libharfbuzz.so.0:hb_font_set_variations
 libharfbuzz.so.0:hb_font_subtract_glyph_origin_for_direction
+libharfbuzz.so.0:hb_free
 libharfbuzz.so.0:hb_ft_face_create
 libharfbuzz.so.0:hb_ft_face_create_cached
+libharfbuzz.so.0:hb_ft_face_create_from_blob_or_fail
 libharfbuzz.so.0:hb_ft_face_create_from_file_or_fail
 libharfbuzz.so.0:hb_ft_face_create_referenced
 libharfbuzz.so.0:hb_ft_font_changed
@@ -355,6 +363,7 @@ libharfbuzz.so.0:hb_language_from_string
 libharfbuzz.so.0:hb_language_get_default
 libharfbuzz.so.0:hb_language_matches
 libharfbuzz.so.0:hb_language_to_string
+libharfbuzz.so.0:hb_malloc
 libharfbuzz.so.0:hb_map_allocation_successful
 libharfbuzz.so.0:hb_map_clear
 libharfbuzz.so.0:hb_map_copy
@@ -509,10 +518,13 @@ libharfbuzz.so.0:hb_paint_pop_group
 libharfbuzz.so.0:hb_paint_pop_transform
 libharfbuzz.so.0:hb_paint_push_clip_glyph
 libharfbuzz.so.0:hb_paint_push_clip_rectangle
+libharfbuzz.so.0:hb_paint_push_font_transform
 libharfbuzz.so.0:hb_paint_push_group
+libharfbuzz.so.0:hb_paint_push_inverse_font_transform
 libharfbuzz.so.0:hb_paint_push_transform
 libharfbuzz.so.0:hb_paint_radial_gradient
 libharfbuzz.so.0:hb_paint_sweep_gradient
+libharfbuzz.so.0:hb_realloc
 libharfbuzz.so.0:hb_script_from_iso15924_tag
 libharfbuzz.so.0:hb_script_from_string
 libharfbuzz.so.0:hb_script_get_horizontal_direction
