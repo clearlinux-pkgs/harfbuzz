@@ -243,6 +243,7 @@ libharfbuzz.so.0:hb_font_create
 libharfbuzz.so.0:hb_font_create_sub_font
 libharfbuzz.so.0:hb_font_destroy
 libharfbuzz.so.0:hb_font_draw_glyph
+libharfbuzz.so.0:hb_font_draw_glyph_or_fail
 libharfbuzz.so.0:hb_font_funcs_create
 libharfbuzz.so.0:hb_font_funcs_destroy
 libharfbuzz.so.0:hb_font_funcs_get_empty
@@ -251,6 +252,7 @@ libharfbuzz.so.0:hb_font_funcs_is_immutable
 libharfbuzz.so.0:hb_font_funcs_make_immutable
 libharfbuzz.so.0:hb_font_funcs_reference
 libharfbuzz.so.0:hb_font_funcs_set_draw_glyph_func
+libharfbuzz.so.0:hb_font_funcs_set_draw_glyph_or_fail_func
 libharfbuzz.so.0:hb_font_funcs_set_font_h_extents_func
 libharfbuzz.so.0:hb_font_funcs_set_font_v_extents_func
 libharfbuzz.so.0:hb_font_funcs_set_glyph_contour_point_func
@@ -270,6 +272,7 @@ libharfbuzz.so.0:hb_font_funcs_set_glyph_v_origin_func
 libharfbuzz.so.0:hb_font_funcs_set_nominal_glyph_func
 libharfbuzz.so.0:hb_font_funcs_set_nominal_glyphs_func
 libharfbuzz.so.0:hb_font_funcs_set_paint_glyph_func
+libharfbuzz.so.0:hb_font_funcs_set_paint_glyph_or_fail_func
 libharfbuzz.so.0:hb_font_funcs_set_user_data
 libharfbuzz.so.0:hb_font_funcs_set_variation_glyph_func
 libharfbuzz.so.0:hb_font_get_empty
@@ -314,9 +317,11 @@ libharfbuzz.so.0:hb_font_get_variation_glyph
 libharfbuzz.so.0:hb_font_glyph_from_string
 libharfbuzz.so.0:hb_font_glyph_to_string
 libharfbuzz.so.0:hb_font_is_immutable
+libharfbuzz.so.0:hb_font_is_synthetic
 libharfbuzz.so.0:hb_font_list_funcs
 libharfbuzz.so.0:hb_font_make_immutable
 libharfbuzz.so.0:hb_font_paint_glyph
+libharfbuzz.so.0:hb_font_paint_glyph_or_fail
 libharfbuzz.so.0:hb_font_reference
 libharfbuzz.so.0:hb_font_set_face
 libharfbuzz.so.0:hb_font_set_funcs
